@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js",
     "start": "node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/app.js",
+    "cypress": "npx cypress open",
+    "test": "npx cypress run --env allure=true",
+    "clear:reports": "npx rimraf allure-results & npx rimraf allure-report",
+    "allure:generate": "allure generate allure-results",
+    "allure:open": "allure open allure-report",
+    "report": "npm run clear:reports & npm run test & npm run allure:generate & npm run allure:open"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +27,7 @@
     "cypress": "^13.14.1",
     "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-mongodb": "^6.2.1",
-    "cypress-plugin-api": "^2.11.2"
+    "cypress-plugin-api": "^2.11.2",
+    "rimraf": "^6.0.1"
   }
 }

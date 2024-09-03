@@ -15,10 +15,10 @@
 
 import "cypress-plugin-api";
 
-import "./commands";
 import '@shelex/cypress-allure-plugin';
 import { addCommands } from "cypress-mongodb/dist/index-browser";
 addCommands();
+import "./commands";
 // Import commands.js using ES2015 syntax:
 
 
